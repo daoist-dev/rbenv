@@ -90,7 +90,7 @@ fish )
   echo "set -gx RBENV_SHELL $shell"
 ;;
 * )
-  echo 'export PATH="'${RBENV_ROOT}'/shims:${PATH}"'
+  ! [[ ${PATH} =~ "${RBENV_ROOT}/shims" ]] && echo 'export PATH="'${RBENV_ROOT}'/shims:${PATH}"'
   echo "export RBENV_SHELL=$shell"
 ;;
 esac
